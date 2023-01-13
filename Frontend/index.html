@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="sidebar-noneoverflow">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Expense Tracker</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Font Awesome Icon Library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="assets/js/globals.js"></script>
+</head>
+
+<body class="sidebar-noneoverflow">
+    <!-- BEGIN HEADER -->
+    <div  class="header-container fixed-top sidebar-closed">
+        <header class="header navbar navbar-expand-sm expand-header">
+            <a  href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-bar-chart-2">
+                    <line  x1="18" y1="20" x2="18" y2="10"></line>
+                    <line  x1="12" y1="20" x2="12" y2="4"></line>
+                    <line  x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+            </a>
+
+            <ul  class="navbar-item flex-row ml-auto gap-2" style="padding-right: 20px;">
+                <li  class="nav-item dropdown notification-dropdown">
+                    <a  href="javascript:void(0);" class="nav-link dropdown-toggle"
+                        id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg  version="1.0" xmlns="http://www.w3.org/2000/svg" width="20.000000pt"
+                            height="20.000000pt" viewBox="0 0 48.000000 48.000000" preserveAspectRatio="xMidYMid meet">
+                            <g  transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
+                                fill="currentColor" stroke="none">
+                                <path 
+                                    d="M167 418 c-46 -27 -77 -88 -77 -151 0 -25 -7 -62 -17 -81 -29 -61 -16 -66 167 -66 183 0 196 5 167 66 -10 19 -17 57 -17 85 0 97 -52 159 -139 166 -35 3 -55 -2 -84 -19z" />
+                                <path 
+                                    d="M190 81 c20 -38 80 -38 100 0 10 18 7 19 -50 19 -57 0 -60 -1 -50 -19z" />
+                            </g>
+                        </svg>
+                        <span  id="notification-status" class="badge badge-success d-none"></span>
+                    </a>
+                    <div  class="dropdown-menu position-absolute" aria-labelledby="notificationDropdown">
+                        <div  class="notification-scroll">
+                            <div  class="d-flex flex-column justify-content-center align-items-center"
+                                style="height:50px;">
+                                <span  class="text-white">No upcoming expenses</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li  class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
+                    <a  href="javascript:void(0);" class="nav-link dropdown-toggle user"
+                        id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg  version="1.0" xmlns="http://www.w3.org/2000/svg" width="20.000000pt"
+                            height="20.000000pt" viewBox="0 0 48.000000 48.000000" preserveAspectRatio="xMidYMid meet">
+                            <g  transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
+                                fill="currentColor" stroke="none">
+                                <path 
+                                    d="M191 426 c-87 -48 -50 -186 49 -186 51 0 100 49 100 99 0 75 -83 124 -149 87z" />
+                                <path 
+                                    d="M92 188 c-36 -36 8 -116 76 -136 132 -40 269 40 222 129 -10 17 -22 19 -148 19 -94 0 -142 -4 -150 -12z" />
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <!-- END HEADER -->
+    <div  id="container" class="main-container sidebar-closed sbar-open">
+        <!-- BEGIN SIDEBAR -->
+
+        <div class="sidebar-wrapper sidebar-theme">
+
+            <nav id="sidebar">
+                <div class="shadow-bottom"></div>
+
+                <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
+                    <li class="menu">
+                        <a href="#" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
+                                <img src="assets/images/Logo.svg" alt="" class="logo">
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu">
+                        <a href="javascript:void(0)" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                            <div class="profile-icon-container">
+                                <img src="assets/images/profile.jpg" alt="" class="profile-icon">
+                                <div class="d-flex flex-column">
+                                    <span>Prit Thakkar</span>
+                                    <span style="font-size:0.8rem;font-weight:lighter">Cybersecurity Analyst</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu category">
+                        <a href="javascript:void(0)" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                            <h4>General</h4>
+                        </a>
+                    </li>
+
+                    <li class="menu active">
+                        <a href="index.html" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt"
+                                    height="40.000000pt" viewBox="0 0 40.000000 40.000000"
+                                    preserveAspectRatio="xMidYMid meet">
+                                    <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)"
+                                        fill="currentColor" stroke="none">
+                                        <path
+                                            d="M145 351 c-43 -38 -81 -74 -83 -80 -9 -26 28 -6 101 55 l77 65 78 -65 c72 -62 102 -78 102 -57 0 5 -7 14 -15 21 -9 7 -15 29 -15 51 0 29 -4 39 -16 39 -9 0 -22 -7 -28 -15 -10 -14 -17 -11 -53 20 -23 19 -47 35 -55 34 -7 0 -49 -31 -93 -68z" />
+                                        <path
+                                            d="M163 297 l-73 -62 0 -61 c0 -74 11 -86 72 -82 l43 3 3 53 c3 50 4 52 32 52 28 0 29 -2 32 -52 l3 -53 43 -3 c61 -4 72 8 72 82 l0 61 -75 63 c-41 34 -76 62 -77 61 -2 0 -36 -28 -75 -62z" />
+                                    </g>
+                                </svg>
+                                <span>Dashboard</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu ">
+                        <a href="Category.html" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="fa-solid fa-clone"></i>
+                                <span>Categories</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu ">
+                        <a href="Transaction.html" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                <span>Transactions</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                    <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                </div>
+                <div class="ps__rail-y" style="top: 0px; height: 452px; right: 0px;">
+                    <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 231px;"></div>
+                </div>
+
+            </nav>
+
+        </div>
+        <!-- END SIDEBAR -->
+        <div  id="content" class="main-content">
+            <div  class="container mt-5">
+                <div  class="row justify-content-center">
+                    <div  class="col-xl-10">
+                        <main  role="main" class="pb-3">
+
+                            <div class="row dash-wigdet-1">
+                                <div class="col-xl-4 col-lg-6 col-md-6 pb-4">
+                                    <div class="widget1">
+                                        <div class="bg"></div>
+                                        <div class="bg-overlay"></div>
+                                        <div class="morph-glass-bg"></div>
+                                        <div class="currency-bg"></div>
+                                        <span class="currency-icon">₹</span>
+                                        <span class="title">TOTAL INCOME</span>
+                                        <span id="totalIncome" class="content">0</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 pb-4">
+                                    <div class="widget-content" style="max-height: 250px;">
+                                        <div id="monthly-spend">
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-footer">
+                                        <h3>Monthly Spend</h3>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 pb-4">
+                                    <div class="widget1">
+                                        <div class="bg"></div>
+                                        <div class="bg-overlay"></div>
+                                        <div class="morph-glass-bg"></div>
+                                        <div class="currency-bg"></div>
+                                        <span class="currency-icon">₹</span>
+                                        <span class="title">TOTAL SPEND</span>
+                                        <span id="totalExpense" class="content">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row dash-widget-2">
+                                <div class="col-lg-5 pb-4">
+                                    <div class="widget">
+                                        <div class="widget-heading">
+                                            <h5 class="">Categorywise Expenses</h5>
+                                        </div>
+                                        <div class="widget-content" style="position: relative">
+                                            <div id="cat-exp-chart">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 pb-4">
+                                    <div class="widget compare-widget">
+                                        <div class="widget-heading">
+                                            <h5 class="">Income vs Expense</h5>
+                                        </div>
+                                        <div class="widget-content">
+                                            <div class="tabs tab-content">
+                                                <div id="content_1" class="tabcontent" style="position: relative;">
+                                                    <div id="revenueMonthly">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script src="assets/js/plugins/apexcharts/apexcharts.min.js"></script>
+                            <script type="text/javascript">
+                                var categorywiseExpenses = [];
+
+                                var categorywiseTitle = [];
+
+                                var expenseLast7days = [];
+
+                                var incomeLast7days = [];
+
+                                var last7days = [];
+                                
+                                var transLast7Days = 0;
+                                var balancePercentage = 0;
+                            </script>
+                            <script src="assets/js/chart-config.js"></script>
+                            <script>
+                                $.get(appUrl + "/api/Dashboard", function (data, status) {
+                                    if (status == "success") {
+
+                                        $("#totalIncome").html(data.data.TotalIncome);
+                                        $("#totalExpense").html(data.data.TotalExpense);
+
+                                        data.data.DoughnutChartData.forEach(function (dcdItem) {
+                                            categorywiseTitle.push(dcdItem.categoryTitle);
+                                            categorywiseExpenses.push(dcdItem.amount);
+                                        })
+
+                                        data.data.AreaChartData.forEach(function (acdItem) {
+                                            expenseLast7days.push(acdItem.expense);
+                                            incomeLast7days.push(acdItem.income);
+                                            last7days.push(acdItem.day);
+                                        })
+
+                                        options1.title.text=transLast7Days=data.data.TransLast7Days;
+                                        options2.series[0]=balancePercentage=data.data.BalancePercentage;
+
+                                        try {
+                                            var chart = new ApexCharts(document.querySelector("#cat-exp-chart"), options);
+                                            chart.render();
+                                            var chart1 = new ApexCharts(document.querySelector("#revenueMonthly"), options1);
+                                            chart1.render();
+                                            var chart2 = new ApexCharts(document.querySelector("#monthly-spend"), options2);
+                                            chart2.render();
+                                        } catch (e) {
+                                            console.log(e);
+                                        }
+                                    }
+                                });
+                            </script>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/site.js"></script>
+
+</body>
+
+</html>

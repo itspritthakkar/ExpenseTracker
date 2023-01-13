@@ -1,0 +1,1 @@
+const appUrl = "http://localhost:5236";

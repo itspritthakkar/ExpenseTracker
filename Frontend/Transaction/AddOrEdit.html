@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="sidebar-noneoverflow">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Transaction |  Expense Tracker</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Font Awesome Icon Library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/plugins/calendar.css" />
+    <script src="../assets/js/globals.js"></script>
+</head>
+<body class="sidebar-noneoverflow">
+    <!-- BEGIN HEADER -->
+    <div  class="header-container fixed-top sidebar-closed">
+        <header class="header navbar navbar-expand-sm expand-header">
+            <a  href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line  x1="18" y1="20" x2="18" y2="10"></line><line  x1="12" y1="20" x2="12" y2="4"></line><line  x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </a>
+
+            <ul  class="navbar-item flex-row ml-auto gap-2" style="padding-right: 20px;">
+                <li  class="nav-item dropdown notification-dropdown">
+                    <a  href="javascript:void(0);" class="nav-link dropdown-toggle" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg  version="1.0" xmlns="http://www.w3.org/2000/svg" width="20.000000pt" height="20.000000pt" viewBox="0 0 48.000000 48.000000" preserveAspectRatio="xMidYMid meet"> <g  transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path  d="M167 418 c-46 -27 -77 -88 -77 -151 0 -25 -7 -62 -17 -81 -29 -61 -16 -66 167 -66 183 0 196 5 167 66 -10 19 -17 57 -17 85 0 97 -52 159 -139 166 -35 3 -55 -2 -84 -19z" /> <path  d="M190 81 c20 -38 80 -38 100 0 10 18 7 19 -50 19 -57 0 -60 -1 -50 -19z" /> </g> </svg>
+                        <span  id="notification-status" class="badge badge-success d-none"></span>
+                    </a>
+                    <div  class="dropdown-menu position-absolute" aria-labelledby="notificationDropdown">
+                        <div  class="notification-scroll">
+                            <div  class="d-flex flex-column justify-content-center align-items-center" style="height:50px;">
+                                <span  class="text-white">No upcoming expenses</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li  class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
+                    <a  href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg  version="1.0" xmlns="http://www.w3.org/2000/svg" width="20.000000pt" height="20.000000pt" viewBox="0 0 48.000000 48.000000" preserveAspectRatio="xMidYMid meet"> <g  transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path  d="M191 426 c-87 -48 -50 -186 49 -186 51 0 100 49 100 99 0 75 -83 124 -149 87z"/> <path  d="M92 188 c-36 -36 8 -116 76 -136 132 -40 269 40 222 129 -10 17 -22 19 -148 19 -94 0 -142 -4 -150 -12z"/> </g> </svg>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <!-- END HEADER -->
+    <div  id="container" class="main-container sidebar-closed sbar-open">
+        <!-- BEGIN SIDEBAR -->
+        
+<div class="sidebar-wrapper sidebar-theme">
+
+    <nav id="sidebar">
+        <div class="shadow-bottom"></div>
+
+        <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
+            <li class="menu">
+                <a href="#" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <img src="../assets/images/Logo.svg" alt="" class="logo">
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu">
+                <a href="javascript:void(0)" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                    <div class="profile-icon-container">
+                        <img src="../assets/images/profile.jpg" alt="" class="profile-icon">
+                        <div class="d-flex flex-column">
+                            <span>Prit Thakkar</span>
+                            <span style="font-size:0.8rem;font-weight:lighter">Cybersecurity Analyst</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu category">
+                <a href="javascript:void(0)" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                    <h4>General</h4>
+                </a>
+            </li>
+
+            <li class="menu ">
+                <a href="../index.html" data-active="true" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 40.000000 40.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M145 351 c-43 -38 -81 -74 -83 -80 -9 -26 28 -6 101 55 l77 65 78 -65 c72 -62 102 -78 102 -57 0 5 -7 14 -15 21 -9 7 -15 29 -15 51 0 29 -4 39 -16 39 -9 0 -22 -7 -28 -15 -10 -14 -17 -11 -53 20 -23 19 -47 35 -55 34 -7 0 -49 -31 -93 -68z" /> <path d="M163 297 l-73 -62 0 -61 c0 -74 11 -86 72 -82 l43 3 3 53 c3 50 4 52 32 52 28 0 29 -2 32 -52 l3 -53 43 -3 c61 -4 72 8 72 82 l0 61 -75 63 c-41 34 -76 62 -77 61 -2 0 -36 -28 -75 -62z" /> </g> </svg>
+                        <span>Dashboard</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu ">
+                <a href="../Category.html" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-clone"></i>
+                        <span>Categories</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu active">
+                <a href="../Transaction.html" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                        <span>Transactions</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 452px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 231px;"></div></div>
+
+    </nav>
+
+</div>
+        <!-- END SIDEBAR -->
+        <div  id="content" class="main-content">
+            <div  class="container mt-5">
+                <div  class="row justify-content-center">
+                    <div  class="col-xl-10">
+                        <main  role="main" class="pb-3">
+                                <div  class="row">
+                                    <div  class="d-flex flex-column mb-3">
+                                        <div  class="d-flex mb-1">
+                                            <div  class="flex-grow-1">
+                                                <h2  class="fw-bold text-uppercase">New Transaction</h2>
+                                            </div>
+                                            <div >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="widget p-5">
+            <form id="addOrEdit" method="post">
+                <input type="hidden" name="TransactionId" value="0" />
+                <div class="mb-3">
+                    <label class="control-label" for="Title">Title</label>
+                    <input class="form-control" type="text" id="Title" name="Title" value="" required/>
+                    <span class="text-danger field-validation-valid" data-attribute="Title"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="control-label" for="CategoryId">Category</label>
+                            <select class="form-control" id="CategoryId" name="CategoryId" required>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="control-label" for="Amount">Amount</label>
+                            <input class="form-control text-box single-line" id="Amount" name="Amount" type="text" value="0" required/>
+                            <span class="text-danger field-validation-valid" data-attribute="Amount"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="control-label" for="Description">Description</label>
+                    <input class="form-control" type="text" id="Description" name="Description" value="" />
+                    <span class="text-danger field-validation-valid" data-attribute="Description"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="control-label" for="Date">Date</label>
+                    <input class="form-control custom-date-picker" readonly="readonly" type="date" id="Date" name="Date" value="" required/>
+                    <span class="text-danger field-validation-valid" data-attribute="Date"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="widget h-100 d-flex flex-column justify-content-center align-items-center dark">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker">February</span>
+                    <div class="year-picker">
+                        <span class="year-change" id="prev-year">
+                            <pre><</pre>
+                        </span>
+                        <span id="year">2021</span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-days"></div>
+                </div>
+                <div class="month-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/plugins/calendar.js"></script>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const transactionId = urlParams.get('id');
+    let currDate = new Date();
+    $('input[type=date][name=Date]').val(currDate.getFullYear() + "-" + ('0' + (currDate.getMonth() + 1)).slice(-2) + "-" + ('0' + currDate.getDate()).slice(-2));
+    if (transactionId != undefined && transactionId != "") {
+        $.get(appUrl + "/api/Transaction/" + transactionId, function (data, status) {
+            currDate=new Date(data.data.transaction.date);
+            makeCalendar();
+            $('input[type=hidden][name=TransactionId]').val(data.data.transaction.transactionId);
+            $('input[type=text][name=Title]').val(data.data.transaction.title);
+            $('input[type=text][name=Amount]').val(data.data.transaction.amount);
+            $('input[type=text][name=Description]').val(data.data.transaction.description);
+            $('input[type=date][name=Date]').val(currDate.getFullYear() + "-" + ('0' + (currDate.getMonth() + 1)).slice(-2) + "-" + ('0' + currDate.getDate()).slice(-2));
+            var htmlString = ``;
+            data.data.selectCategories.forEach(category => {
+                htmlString+=`<option value="`+category.value+`" `+(category.selected == true ? "selected" : "")+`>`+category.text+`</option>`;
+            });
+            $('#CategoryId').html(htmlString);
+        });
+    }
+    else{
+        makeCalendar();
+        $.get(appUrl + "/api/Category/", function (data, status) {
+            var htmlString = ``;
+            data.data.forEach(category => {
+                htmlString+=`<option value="`+category.categoryId+`">`+category.name+`</option>`;
+            });
+            $('#CategoryId').html(htmlString);
+        });
+    }
+
+    $(document).ready(function(){
+        $("#addOrEdit").submit(function(e) {
+            e.preventDefault();
+
+            $(".field-validation-valid").each(function(el) {
+                $(this).text("");
+            });
+            
+            var formValid = true;
+            if (isNaN($('input[type=text][name=Amount]').val())) {
+                formValid=false;
+                $('span[data-attribute=Amount]').text("Please enter a number");
+            }
+            else if($('input[type=text][name=Amount]').val()<0){
+                formValid=false;
+                $('span[data-attribute=Amount]').text("Amount must be greater than 0");
+            }
+
+            if(formValid){
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    "url": appUrl + "/api/Transaction",
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify(Object.fromEntries(formData)),
+                    error: function(xhr, status, error) {
+                        serverValidation(xhr, status, error)
+                    }
+                    })
+                    .done(function (response) {
+                        console.log(response);
+                        if(response.status == 200){
+                            window.location = "../Transaction.html";
+                        }
+                    });
+            }
+        });
+    });
+</script>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/site.js"></script>
+
+</html>

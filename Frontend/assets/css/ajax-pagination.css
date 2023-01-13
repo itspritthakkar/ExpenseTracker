@@ -1,0 +1,40 @@
+﻿label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+ul.pagination {
+    margin-top: unset;
+    margin-bottom: unset;
+    gap: 10px;
+}
+
+.page-item.disabled .page-link {
+    color: #7d8082;
+    background-color: #1b275a;
+    border-color: #1b275a;
+    border-radius: 9%;
+}
+
+.page-item .page-link {
+    padding: 6px 15px;
+    border-radius: 15%;
+}
+
+.page-link {
+    background-color: #1b275a;
+    border-color: #1b275a;
+    color: #fff;
+}
+
+    .page-link:hover {
+        background-color: #131c3f;
+        border-color: #131c3f;
+        color: #fff;
+    }
+
+.page-item.active .page-link {
+    background-color: #4361ee;
+    border-color: #4361ee;
+}
