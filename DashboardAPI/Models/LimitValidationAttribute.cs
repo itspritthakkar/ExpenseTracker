@@ -33,6 +33,15 @@ namespace DashboardAPI.Models
 
                 double Balance = TotalIncome - TotalExpense;
 
+                Transaction? untrackedTransaction = _context.Transactions.AsNoTracking().Where(s => s.TransactionId == transaction.TransactionId).FirstOrDefault();
+                if (transaction.CategoryId != 0)
+                {
+                    if(untrackedTransaction != null)
+                    {
+                        Balance -= untrackedTransaction.Amount;
+                    }
+                }
+
                 if (Balance == 0)
                 {
                     Message = $"Please add some income, available balance: {Balance}";
@@ -51,6 +60,11 @@ namespace DashboardAPI.Models
                 DateTime EndDate = DateTime.Today;
                 double transactionSum = _context!.Transactions.Where(i => i.CategoryId == transaction.CategoryId).Where(y => y.Date >= StartDate && y.Date <= EndDate).Sum(j => j.Amount);
                 double categoryLimit = category.Limit - transactionSum;
+                if (untrackedTransaction != null)
+                {
+                    categoryLimit += untrackedTransaction.Amount;
+                }
+                
                 if ((double?)value > categoryLimit)
                 {
                     Message = $"Expense amount more than available category limit: {categoryLimit}";

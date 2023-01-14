@@ -55,7 +55,7 @@ namespace DashboardAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonRes> PostTransaction([Bind("TransactionId,CategoryId,Title,Amount,Description,Date")] Transaction transaction)
+        public async Task<JsonRes> PostTransaction(Transaction transaction)
         {
             if (transaction.TransactionId == 0)
             {
@@ -63,7 +63,8 @@ namespace DashboardAPI.Controllers
             }
             else
             {
-                _context.Entry(transaction).State = EntityState.Detached;
+                _context.ChangeTracker.Clear();
+                _context.Entry(transaction).State = EntityState.Modified;
             }
 
             try
