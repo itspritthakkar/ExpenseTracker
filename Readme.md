@@ -37,15 +37,16 @@ ASP.NET Core is an open-source and cross-platform framework for building modern 
  1. There are two folders, Frontend and DashboardAPI. Change working directory to DashboardAPI to setup backend.
  2. Migration has been made with default seed data for testing.
  3. Create database with name "ExpenseTracker" and update connection string.
- 4. Run following to command to setup the database
+ 4. Run following to command to setup the database.
 
-> Update-Database
+
+        Update-Database
 
 **Frontend**
 
  1. All APIs are dynamically configured. Just change the domain name in Frontend/assets/js/globals.js (if domain name change of backend API is required). Example, to set the current domain for all APIs to "http://localhost:5236" :
  
-> const  appUrl = "http://localhost:5236";
+        const  appUrl = "http://localhost:5236";
 
 ## Usage
 
@@ -56,6 +57,32 @@ As mentioned earlier, the project is made from end-user's perspective. It implem
  3. To better understand your spend, use the feature-rich dashboard to get real-time reports.
 
 ## Assignment Glimpse
-![img](Glimpses/Screenshot1.png)
-![img](Glimpses/Screenshot2.png)
-![img](Glimpses/Screenshot3.png)
+
+**Dashboard**
+
+![img](https://www.immortal.org.in/images/uploads/Screenshot1.png)
+
+**Categories**
+
+![img](https://www.immortal.org.in/images/uploads/Screenshot2.png)
+
+**Transactions**
+
+![img](https://www.immortal.org.in/images/uploads/Screenshot3.png)
+
+
+## License
+
+    Copyright [2023] [Prit Thakkar]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
