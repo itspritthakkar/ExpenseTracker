@@ -14,6 +14,16 @@
     </script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="assets/js/globals.js"></script>
+    <style>
+        tbody > tr {
+            transition: .4s ease;
+        }
+
+        tbody > tr:hover {
+            color: #009ffd;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="sidebar-noneoverflow">
     <!-- BEGIN HEADER -->
@@ -150,7 +160,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="widget d-flex flex-column justify-content-center align-items-center" style="min-height:485px;height:100%">
+        <div class="widget d-flex flex-column justify-content-center align-items-center p-5 gap-3 category-container" style="min-height:485px;height:100%;overflow-x:hidden;">
             <span class="text-white-50" style="font-size:60px;"><i class="fa-solid fa-clone fa-2xl"></i></span>
         </div>
     </div>
@@ -183,10 +193,10 @@
                                 </tr>
                             </thead>`;
             data.data.forEach(transaction => {
-                htmlString+=`<tr>
+                htmlString+=`<tr data-itemid="`+transaction.transactionId+`" data-categoryid="`+transaction.categoryId+`">
                                 <td>`+transaction.title+`</td>
                                 <td>
-                                    `+transaction.category.name+`
+                                    `+transaction.categoryName+`
                                 </td>
                                 <td style="white-space:nowrap;">
                                     `+transaction.formattedAmount+`
@@ -199,7 +209,7 @@
                                 </td>
                                 <td>
                                     <a style="padding-right: 10px" href="Transaction/AddOrEdit.html?id=`+transaction.transactionId+`"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="javascript:void(0);" class="text-danger delete-btn" data-itemid="`+transaction.transactionId+`"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="javascript:void(0);" class="text-danger delete-btn"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>`;
             });
@@ -207,26 +217,20 @@
             $(".table-container").html(htmlString);
 
             $('#table').DataTable({
-                lengthMenu: [5, 25, 50, 100]
+                lengthMenu: [5, 25, 50, 100],
+                order: [],
             });
-            attachDeleteHandler();
+            attachHandlers();
             $(document).on('click', '.paginate_button', function () {
-                attachDeleteHandler();
+                attachHandlers();
             });
-            $(document).on('mouseover', '.category-desc', function () {
-                var categoryDesc = $($(this)[0]).data("cds")
-                $($(this)[0]).text(categoryDesc);
-            });
-            $(document).on('mouseout', '.category-desc', function () {
-                var categoryDesc = $($(this)[0]).data("cds")
-                $($(this)[0]).text(categoryDesc.slice(0,10)+"...");
-            });
+            
         }
     });
 
-    function attachDeleteHandler() {
+    function attachHandlers() {
         $(".delete-btn").on("click", function () {
-            var itemId = $(this).data("itemid");
+            var itemId = $(this).parents("tr").data("itemid");
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -248,6 +252,55 @@
                 }
             })
         });
+        $('.category-desc').on('mouseover', function () {
+                var categoryDesc = $($(this)[0]).data("cds")
+                $($(this)[0]).text(categoryDesc);
+            });
+        $('.category-desc').on('mouseout', function () {
+            var categoryDesc = $($(this)[0]).data("cds")
+            $($(this)[0]).text(categoryDesc.slice(0,10)+"...");
+        });
+        $("tr").on("click", function (params) {
+            $(".category-container").html(`<svg class="spinner" viewBox="0 0 50 50"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>`);
+            var categoryId = $(this).data("categoryid");
+            $.get(appUrl + "/api/Category/" + categoryId, function (data, status) {
+                htmlString2="";
+
+                htmlString2=`<img src="`+appUrl+'/uploads/'+(data.data.category.icon == "" ? "categories-default.png" : data.data.category.icon)+`" alt="" class="category-icon">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Name:</small>
+                                        <h5>`+data.data.category.name+`</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Type:</small>
+                                        <h5>`+data.data.category.type+`</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Limit:</small>
+                                        <h5>`+data.data.category.limit+`</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Total `+(data.data.category.type == "Expense" ? "Spend" : "Gain")+`:</small>
+                                        <h5>`+data.data.totalExpense+`</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Monthly Trans.:</small>
+                                        <h5>`+data.data.transThisMonth+`</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small class="text-white-50">Monthly `+(data.data.category.type == "Expense" ? "Spend" : "Gain")+`:</small>
+                                        <h5>`+data.data.sumThisMonth+`</h5>
+                                    </div>
+                                </div>`;
+                $(".category-container").removeClass("align-items-center justify-content-center"); 
+                $(".category-container").html(htmlString2);
+            });
+        })
     }
 </script>
 

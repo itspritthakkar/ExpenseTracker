@@ -237,10 +237,11 @@
     }
     else{
         makeCalendar();
+        const categoryId = urlParams.get('cid');
         $.get(appUrl + "/api/Category/", function (data, status) {
             var htmlString = ``;
             data.data.forEach(category => {
-                htmlString+=`<option value="`+category.categoryId+`">`+category.name+`</option>`;
+                htmlString+=`<option value="`+category.categoryId+`" `+(categoryId == category.categoryId ? "selected" : "")+`>`+category.name+`</option>`;
             });
             $('#CategoryId').html(htmlString);
         });
@@ -278,7 +279,6 @@
                     }
                     })
                     .done(function (response) {
-                        console.log(response);
                         if(response.status == 200){
                             window.location = "../Transaction.html";
                         }

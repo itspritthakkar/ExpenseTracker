@@ -200,7 +200,6 @@
     if (categoryId != undefined) {
         $.get(appUrl + "/api/Category/" + categoryId, function (data, status) {
             if (status == "success") {
-                console.log(data.data);
                 if(data.data.category.icon != ""){
                     iconName = appUrl + "/uploads/" + data.data.category.icon;
                 }

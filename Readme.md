@@ -19,10 +19,10 @@ ASP.NET Core is an open-source and cross-platform framework for building modern 
 ## Prerequisites
 
 **Backend**
- - Microsoft.EntityFrameworkCore (v6.0.13)
- - Microsoft.EntityFrameworkCore.SqlServer (v6.0.13)
- - Microsoft.EntityFrameworkCore.Tools (v6.0.13)
- - Microsoft.VisualStudio.Web.CodeGeneration.Design (v6.0.11)
+ - Microsoft.EntityFrameworkCore (v7.0.2)
+ - Microsoft.EntityFrameworkCore.SqlServer (v7.0.2)
+ - Microsoft.EntityFrameworkCore.Tools (v7.0.2)
+ - Microsoft.VisualStudio.Web.CodeGeneration.Design (v7.0.2)
  - Swashbuckle.AspNetCore (v6.5.0)
  
  **Frontend**
@@ -46,7 +46,7 @@ ASP.NET Core is an open-source and cross-platform framework for building modern 
 
  1. All APIs are dynamically configured. Just change the domain name in Frontend/assets/js/globals.js (if domain name change of backend API is required). Example, to set the current domain for all APIs to "http://localhost:5236" :
  
-        const  appUrl = "http://localhost:5236";
+        const appUrl = "http://localhost:5236";
 
 ## Usage
 

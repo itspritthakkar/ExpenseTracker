@@ -21,7 +21,7 @@ namespace DashboardAPI.Models
                         Icon = "income-transaction-e-wallet.png",
                         Type = "Income",
                         Bookmark = 1,
-                        Limit= 0,
+                        Limit = 0,
                     },
                     new Category
                     {

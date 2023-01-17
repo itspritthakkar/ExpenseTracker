@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DashboardAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230111052709_init")]
+    [Migration("20230117050141_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.12")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -139,7 +139,7 @@ namespace DashboardAPI.Migrations
                             Amount = 75000.0,
                             CategoryId = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "This month's salary 🥳",
                             Title = "January Salary",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -150,7 +150,7 @@ namespace DashboardAPI.Migrations
                             Amount = 6000.0,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 14, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Just got a new pair of shoe 😎",
                             Title = "Puma Shoes",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -161,7 +161,7 @@ namespace DashboardAPI.Migrations
                             Amount = 800.0,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "The perfume smeels good, doesn't it?",
                             Title = "Park Avenue Perfume",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -172,7 +172,7 @@ namespace DashboardAPI.Migrations
                             Amount = 3500.0,
                             CategoryId = 3,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Electricity Bill",
                             Title = "Electricity Bill",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -183,7 +183,7 @@ namespace DashboardAPI.Migrations
                             Amount = 30000.0,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Just got a bike😍",
                             Title = "New Bike",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -194,7 +194,7 @@ namespace DashboardAPI.Migrations
                             Amount = 2300.0,
                             CategoryId = 3,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "Pay office electricity bill",
                             Title = "Office Bill",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -205,7 +205,7 @@ namespace DashboardAPI.Migrations
                             Amount = 700.0,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             Description = "BoAt Watch",
                             Title = "BoAt Watch",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)

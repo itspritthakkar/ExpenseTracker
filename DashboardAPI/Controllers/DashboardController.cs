@@ -1,5 +1,4 @@
 ﻿using DashboardAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
@@ -119,16 +118,16 @@ namespace DashboardAPI.Controllers
                 .ToArray();
 
             var AreaChartData = from day in Last7Days
-                                    join income in IncomeSummary on day equals income.day into dayIncomeJoined
-                                    from income in dayIncomeJoined.DefaultIfEmpty()
-                                    join expense in ExpenseSummary on day equals expense.day into expenseJoined
-                                    from expense in expenseJoined.DefaultIfEmpty()
-                                    select new
-                                    {
-                                        day,
-                                        income = income == null ? 0 : income.income,
-                                        expense = expense == null ? 0 : expense.expense,
-                                    };
+                                join income in IncomeSummary on day equals income.day into dayIncomeJoined
+                                from income in dayIncomeJoined.DefaultIfEmpty()
+                                join expense in ExpenseSummary on day equals expense.day into expenseJoined
+                                from expense in expenseJoined.DefaultIfEmpty()
+                                select new
+                                {
+                                    day,
+                                    income = income == null ? 0 : income.income,
+                                    expense = expense == null ? 0 : expense.expense,
+                                };
             result.Add("AreaChartData", AreaChartData);
 
             return new JsonRes

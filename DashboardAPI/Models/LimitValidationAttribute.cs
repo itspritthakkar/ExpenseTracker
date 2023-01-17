@@ -36,7 +36,7 @@ namespace DashboardAPI.Models
                 Transaction? untrackedTransaction = _context.Transactions.AsNoTracking().Where(s => s.TransactionId == transaction.TransactionId).FirstOrDefault();
                 if (transaction.CategoryId != 0)
                 {
-                    if(untrackedTransaction != null)
+                    if (untrackedTransaction != null)
                     {
                         Balance -= untrackedTransaction.Amount;
                     }
@@ -64,7 +64,7 @@ namespace DashboardAPI.Models
                 {
                     categoryLimit += untrackedTransaction.Amount;
                 }
-                
+
                 if ((double?)value > categoryLimit)
                 {
                     Message = $"Expense amount more than available category limit: {categoryLimit}";

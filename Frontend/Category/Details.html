@@ -128,7 +128,10 @@
                                             <div  class="flex-grow-1">
                                                 <h2  class="fw-bold text-uppercase">Category Details</h2>
                                             </div>
-                                            <div >
+                                            <div>
+                                                <a id="new-transaction" class="btn btn-primary" href="../Transaction/AddOrEdit.html">
+                                                    &#x2B; New Transaction
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +155,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="widget d-flex flex-column justify-content-center align-items-center p-5 gap-3 category-container" style="min-height:485px;height:100%">
+        <div class="widget d-flex flex-column justify-content-center align-items-center p-5 gap-3 category-container" style="min-height:485px;height:100%;overflow-x:hidden;">
             <span class="text-white-50" style="font-size:60px;"><i class="fa-solid fa-clone fa-2xl"></i></span>
         </div>
     </div>
@@ -167,7 +170,7 @@
     if(categoryId != undefined){
         $.get(appUrl + "/api/Category/" + categoryId, function (data, status) {
             if (status == "success") {
-                console.log(data);
+                $("#new-transaction").attr('href', $("#new-transaction").attr('href')+"?cid="+data.data.category.categoryId);
                 htmlString=`<table class="table" id="table">
                                 <thead>
                                     <tr>
@@ -205,7 +208,7 @@
                                         `+transaction.date.slice(0,10)+`
                                     </td>
                                     <td>
-                                        <a style="padding-right: 10px" href="Transaction/AddOrEdit.html?id=`+transaction.transactionId+`"><i class="fa-solid fa-pen"></i></a>
+                                        <a style="padding-right: 10px" href="../Transaction/AddOrEdit.html?id=`+transaction.transactionId+`"><i class="fa-solid fa-pen"></i></a>
                                         <a href="javascript:void(0);" class="text-danger delete-btn" data-itemid="`+transaction.transactionId+`"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>`;
@@ -232,7 +235,7 @@
                                         <h5>`+data.data.category.limit+`</h5>
                                     </div>
                                     <div class="col-md-6">
-                                        <small class="text-white-50">Total `+(data.data.category.Type == "Expense" ? "Spend" : "Gain")+`:</small>
+                                        <small class="text-white-50">Total `+(data.data.category.type == "Expense" ? "Spend" : "Gain")+`:</small>
                                         <h5>`+data.data.totalExpense+`</h5>
                                     </div>
                                 </div>
@@ -242,7 +245,7 @@
                                         <h5>`+data.data.transThisMonth+`</h5>
                                     </div>
                                     <div class="col-md-6">
-                                        <small class="text-white-50">Monthly `+(data.data.category.Type == "Expense" ? "Spend" : "Gain")+`:</small>
+                                        <small class="text-white-50">Monthly `+(data.data.category.type == "Expense" ? "Spend" : "Gain")+`:</small>
                                         <h5>`+data.data.sumThisMonth+`</h5>
                                     </div>
                                 </div>`;

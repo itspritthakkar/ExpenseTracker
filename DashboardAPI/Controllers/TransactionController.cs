@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DashboardAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DashboardAPI.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Collections;
 
 namespace DashboardAPI.Controllers
@@ -26,8 +21,20 @@ namespace DashboardAPI.Controllers
         [HttpGet]
         public async Task<JsonRes> GetTransactions()
         {
-            var transactions = _context.Transactions.Include(t => t.Category);
-            return new JsonRes { Data= await transactions.ToListAsync() };
+            var transactions = _context.Transactions
+                .Include(t => t.Category)
+                .OrderByDescending(x => x.TransactionId)
+                .Select( c => new {
+                    c.TransactionId,
+                    c.CategoryId,
+                    c.Title,
+                    c.Amount,
+                    c.FormattedAmount,
+                    c.Description,
+                    c.Date,
+                    categoryName = c.Category!.Name
+                });
+            return new JsonRes { Data = await transactions.ToListAsync() };
         }
 
         // GET: api/Transaction/5

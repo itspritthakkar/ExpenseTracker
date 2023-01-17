@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DashboardAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DashboardAPI.Models;
 using System.Collections;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DashboardAPI.Controllers
 {
@@ -71,7 +65,7 @@ namespace DashboardAPI.Controllers
 
             if (category == null || _context.Transactions == null)
             {
-                return new JsonRes { Status=400, StatusMessage="Fail", Data="Not Found"};
+                return new JsonRes { Status = 400, StatusMessage = "Fail", Data = "Not Found" };
             }
 
             var transactions = await _context.Transactions
@@ -96,7 +90,7 @@ namespace DashboardAPI.Controllers
                 { "sumThisMonth", sumThisMonth }
             };
 
-            return new JsonRes { Data=result };
+            return new JsonRes { Data = result };
         }
 
         // POST: api/Categories
@@ -205,17 +199,17 @@ namespace DashboardAPI.Controllers
             }
             else
             {
-                return new JsonRes 
-                { 
-                    Status = 400, 
-                    StatusMessage = "Fail", 
+                return new JsonRes
+                {
+                    Status = 400,
+                    StatusMessage = "Fail",
                     Data = "Not Found"
                 };
             }
 
             await _context.SaveChangesAsync();
 
-            return new JsonRes{Data = "Category has been deleted successfully."};
+            return new JsonRes { Data = "Category has been deleted successfully." };
         }
 
         private bool CategoryExists(int id)
